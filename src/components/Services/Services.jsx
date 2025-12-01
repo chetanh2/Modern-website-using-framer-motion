@@ -32,15 +32,12 @@ const servicesData = [
 ];
 
 const cardVariants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-  },
+  hidden: {opacity: 0,y: 20,},
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
+      // duration: 0.5,
       type: "spring",
       stiffness: 150,
       damping: 10,
@@ -48,13 +45,18 @@ const cardVariants = {
     },
   },
 };
+// const containerVariants = {
+//   hidden: {opacity: 1},
+//   visible: {
+//     opacity: 1,
+//     transition: { delay: 0.6, staggerChildren: 0.4 },
+//   },
+// };
 const containerVariants = {
-  hidden: {
-    opacity: 1,
-  },
+  hidden: { opacity: 0 },     // FIXED
   visible: {
     opacity: 1,
-    transition: { delay: 0.6, staggerChildren: 0.4 },
+    transition: { staggerChildren: 0.4, delay: 0.6 },
   },
 };
 const Services = () => {
@@ -100,20 +102,22 @@ const Services = () => {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ amount: 0.8 }}
+        // viewport={{ amount: 0.8 }}
+        viewport={{ amount: 0.2, once: true }} 
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
       >
         {servicesData.map((service) => (
           <motion.div
+            key={service.id}
             variants={cardVariants}
             className="mt-9 text-center p-4 space-y-6"
           >
             <img
-              className=" max-w-[200px] mx-auto hover:scale-110 duration-300 cursor-pointer img-shadow2"
+              className="max-w-[200px] mx-auto hover:scale-110 duration-300 cursor-pointer img-shadow2"
               src={service.img}
               alt=""
-              srcset=""
             />
+
             <div className="space-y-4">
               <p className="text-2xl font-bold text-primary">{service.title}</p>
               <p className="text-darkGray">{service.desc}</p>
