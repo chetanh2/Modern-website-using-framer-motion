@@ -63,13 +63,12 @@ const Hero = () => {
             <div className="relative">
               <motion.img
                 initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                viewport={{once:true}}
+                whileInView={{ opacity: 1, scale: 1 }}
                 transition={{
                   type: "spring",
-                  stiffness: 100,
+                  stiffness: 150,
                   damping: 10,
-                  delay: 0.4,
+                  delay: 0.2,
                 }}
                 src={BlackCoffee}
                 className="relative z-40 h-[400px] md:h-[700px] img-shadow"
@@ -106,7 +105,6 @@ const Hero = () => {
             </div>
             {/* 3rd div section */}
             <div className="hidden lg:block">
-
               <motion.div
                 initial={{ opacity: 0, y: -100 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -126,8 +124,8 @@ const Hero = () => {
                     <h1 className="text-2xl">Blvck Tumbler</h1>
                     <h1 className="text-sm opacity-55 leading-loose">
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Ipsa, quos enim nemo non accusamus. Ipsa, quos enim nemo non
-                      accusamus. Lorem ipsum dolor sit amet.
+                      Ipsa, quos enim nemo non accusamus. Ipsa, quos enim nemo
+                      non accusamus. Lorem ipsum dolor sit amet.
                     </h1>
                   </div>
                   <div className="absolute -top-6 -right-10 w-[250px] h-[200px] bg-darkGray/50"></div>
@@ -139,8 +137,8 @@ const Hero = () => {
         {/* sidebar menu section */}
         {sidebarOpen && (
           <motion.div
-            initial={{ x:"100%" }}
-            whileInView={{x:0}}
+            initial={{ x: "100%" }}
+            whileInView={{ x: 0 }}
             className="absolute top-0 right-0 w-[140px] h-full bg-gradient-to-t from-darkGray/50 to-primaryDark/80 backdrop-blur-sm z-10"
           >
             <div className="w-full h-full flex items-center justify-center">
